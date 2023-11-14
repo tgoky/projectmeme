@@ -11,7 +11,7 @@ import Accessories4 from './components/Accessory4';
 import Accessories5 from './components/Accessory5';
 import './Iris.css'
 
-import hotDog from '../../glizzy/src/overlays/hotdog.png';
+import hotDog from '../src/overlays/hotdog.png'
 
 
 const ImageUpload = ({ onImageUpload }) => {
