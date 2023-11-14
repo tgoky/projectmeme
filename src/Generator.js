@@ -59,15 +59,12 @@ const MemeGenerator = () => {
     setSelectedImage(image);
   };
 
-  const handleOverlayImageDrop = (event, overlayIndex) => {
-    event.preventDefault();
-    // Handle the drop of overlay image at the specified index
-  };
+
 
   const handleGenerateMeme = () => {
     if (selectedImage) {
       const canvas = createCanvas(selectedImage.width, selectedImage.height);
-      const ctx = canvas.getContext('2d');
+
 
       const image = new Image();
       image.src = URL.createObjectURL(selectedImage);
@@ -92,14 +89,7 @@ const MemeGenerator = () => {
         canvas.width = newWidth;
         canvas.height = newHeight;
 
-        ctx.drawImage(image, 0, 0, newWidth, newHeight);
-
-        ctx.fillStyle = 'white';
-        ctx.font = '30px Arial';
-        ctx.textAlign = 'center';
-
-        ctx.fillText(topText, canvas.width / 2, 40);
-        ctx.fillText(bottomText, canvas.width / 2, canvas.height - 20);
+       
 
         const memeDataURL = canvas.toDataURL('image/png');
         document.getElementById('meme-preview').src = memeDataURL;
@@ -107,21 +97,7 @@ const MemeGenerator = () => {
     }
   };
 
-  const handleGenerateMemeWithOverlay = () => {
-    if (selectedImage) {
-      const canvas = createCanvas(selectedImage.width, selectedImage.height);
-      const ctx = canvas.getContext('2d');
 
-      // Load uploaded base image
-      const baseImage = new Image();
-      baseImage.src = URL.createObjectURL(selectedImage);
-
-      baseImage.onload = () => {
-        // Apply overlay images on canvas
-        // Apply text and generate meme
-      };
-    }
-  };
 
   return (
     <div className="meme-generator">
